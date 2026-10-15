@@ -15,7 +15,7 @@ Final project: server-side application for an online book shop built with **Node
 | 7 | Login (registered users) | `POST /customer/login` |
 | 8 | Add / modify a review | `PUT /customer/auth/review/:isbn?review=...` |
 | 9 | Delete own review | `DELETE /customer/auth/review/:isbn` |
-| 10–13 | Same queries with **Axios** (async/await & Promises) | `GET /async/books`, `/async/isbn/:isbn`, `/async/author/:author`, `/async/title/:title` |
+| 10–13 | Routes 1–4 fetch data with **Axios**: all books & author & title use async/await, ISBN uses Promise callbacks | `general.js` |
 
 ## Run
 ```bash
