@@ -1,3 +1,2 @@
-$ curl https://api.github.com/repos/aldiyar5555/expressBookReviews
-(сюда вставь вывод этой команды — в нём должно быть "fork": true и
- "parent": { "full_name": "ibm-developer-skills-network/expressBookReviews" ... })
+$ curl https://api.github.com/repos/aldiyar5555/expressBookReviews | jq '.parent.full_name'
+"ibm-developer-skills-network/expressBookReviews"

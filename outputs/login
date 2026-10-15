@@ -1,2 +1,2 @@
-$ curl -c cookies.txt -X POST localhost:5000/customer/login -H "Content-Type: application/json" -d '{"username":"maksim","password":"pass123"}'
-{"message":"Customer successfully logged in","username":"maksim","accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoicGFzczEyMyIsImlhdCI6MTc5MjA2NjE5MywiZXhwIjoxNzkyMDY5NzkzfQ.73EiAWUucj4k7vMsW6LF_2mhiznfc2GUf38OoR5x-zQ"}
+$ curl -c cookies.txt -X POST localhost:5000/login -H "Content-Type: application/json" -d '{"username":"maksim","password":"pass123"}'
+{"message":"Login successful!","username":"maksim","accessToken":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoicGFzczEyMyIsImlhdCI6MTc5MjA2Njk3MiwiZXhwIjoxNzkyMDcwNTcyfQ.39d8CKfejHW6k3e7wnoyrED-7Cr4ekRsO4xYRWVwZhs"}

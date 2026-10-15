@@ -18,7 +18,8 @@ const authenticatedUser = (username, password) => {
 };
 
 // Task 7: Only registered users can login
-regd_users.post("/login", (req, res) => {
+// Available at POST /login and POST /customer/login
+const loginHandler = (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
 
@@ -27,18 +28,16 @@ regd_users.post("/login", (req, res) => {
     }
 
     if (authenticatedUser(username, password)) {
+        // Create a JWT access token and save it in the session
         let accessToken = jwt.sign({ data: password }, 'access', { expiresIn: 60 * 60 });
-
         req.session.authorization = { accessToken, username };
-        return res.status(200).json({
-            message: "Customer successfully logged in",
-            username: username,
-            accessToken: accessToken
-        });
+        return res.status(200).json({ message: "Login successful!", username: username, accessToken: accessToken });
     } else {
         return res.status(208).json({ message: "Invalid Login. Check username and password" });
     }
-});
+};
+
+regd_users.post("/login", loginHandler);
 
 // Task 8: Add or modify a book review (review is passed as a query parameter)
 regd_users.put("/auth/review/:isbn", (req, res) => {
@@ -87,3 +86,4 @@ regd_users.delete("/auth/review/:isbn", (req, res) => {
 module.exports.authenticated = regd_users;
 module.exports.isValid = isValid;
 module.exports.users = users;
+module.exports.loginHandler = loginHandler;
